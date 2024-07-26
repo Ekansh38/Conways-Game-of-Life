@@ -25,9 +25,9 @@ button_pos = Vector2(
     ((grid.cols * grid.cell_size) // 2) - (button_size.x // 2),
     (grid.rows * grid.cell_size) + (BOTTOM_MARGIN // 2) - (button_size.y // 2),
 )
-start_button = Button(
+button = Button(
     button_pos,
-    "PAUSE",
+    "START",
     button_size,
     "darkgreen",
     "black",
@@ -47,19 +47,23 @@ while running:
     grid.draw_cells(screen)
     grid.draw_grid(screen)
 
-    start_button.draw(screen)
-    if start_button.check_click() and can_pause:
+    button.draw(screen)
+    if button.check_click() and can_pause:
         can_pause = False
         if grid.start:
             grid.start = False
+            button.text = "START"
+            button.color = "darkgreen"
         else:
             grid.start = True
+            button.text = "STOP"
+            button.color = "red"
 
     grid.play()
 
     if not can_pause:
         pause_timer += 1
-        if pause_timer >= 5:
+        if pause_timer >= 3:
             can_pause = True
             pause_timer = -1
 
