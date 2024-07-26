@@ -7,6 +7,7 @@ from grid import Grid
 # Basic setup
 
 pygame.init()
+pygame.mixer.init()
 
 grid = Grid()
 
