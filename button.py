@@ -44,12 +44,12 @@ class Button:
             ),
         )
 
-    def check_click(self, preivous_mouse_pressed):
+    def check_click(self):
         mouse_pos = Vector2(pygame.mouse.get_pos())
         if (
             self.pos.x < mouse_pos.x < self.pos.x + self.size.x
             and self.pos.y < mouse_pos.y < self.pos.y + self.size.y
         ):
-            if pygame.mouse.get_pressed()[0] and not preivous_mouse_pressed:
+            if pygame.mouse.get_pressed()[0]:
                 return True
         return False

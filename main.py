@@ -27,27 +27,29 @@ button_pos = Vector2(
 )
 start_button = Button(
     button_pos,
-    "START",
+    "PAUSE",
     button_size,
     "darkgreen",
     "black",
 )
 
-preivous_mouse_pressed = False
+can_pause = True
+pause_timer = -1
+
 # Game Loop
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    mouse_pressed = pygame.mouse.get_pressed()[0]
     screen.fill("white")
     grid.input()
     grid.draw_cells(screen)
     grid.draw_grid(screen)
 
     start_button.draw(screen)
-    if start_button.check_click(preivous_mouse_pressed):
+    if start_button.check_click() and can_pause:
+        can_pause = False
         if grid.start:
             grid.start = False
         else:
@@ -55,6 +57,11 @@ while running:
 
     grid.play()
 
+    if not can_pause:
+        pause_timer += 1
+        if pause_timer >= 5:
+            can_pause = True
+            pause_timer = -1
+
     pygame.display.update()
     clock.tick(FPS)
-    preivous_mouse_pressed = mouse_pressed
