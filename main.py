@@ -64,7 +64,7 @@ while running:
 
     if not can_pause:
         pause_timer += 1
-        if pause_timer >= 3:
+        if pause_timer >= 8:
             can_pause = True
             pause_timer = -1
 

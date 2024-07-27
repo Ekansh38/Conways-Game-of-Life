@@ -8,11 +8,11 @@ class Grid:
     def __init__(self):
         self.start = False
         self.rows = 20
-        self.cols = 40
-        self.cell_size = 40
+        self.cols = 35
+        self.cell_size = 50
         self.line_color = "black"
         self.generation = 0
-        self.line_thickness = 3
+        self.line_thickness = 2
         self.cells = []
         self.create_cells()
 
