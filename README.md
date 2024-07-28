@@ -40,7 +40,10 @@ This is John Conway's Game of Life built in Python using the PyGame, library.
 
 ## Usage
 
-## Features
+You can use this project to learn about the Game of Life and how it works.
+You can also use this project to create your own patterns and see how they evolve over time.
+
+![Screen Shot of Game](./images/Screenshot-from-Conways-Game-of-Life.png)
 
 ## Contributing
 
